@@ -3,7 +3,7 @@
 using namespace std;
 
 void snilli(){
-    cout << "Thu ert snilli!" << endl;
+    cout << "Thu ert sdfdfgdgnfdfgdgilli!" << endl;
 }
 
 
