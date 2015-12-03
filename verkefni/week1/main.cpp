@@ -6,7 +6,7 @@ void snilli(){
     cout << "Thu ert Binni!" << endl;
 }
 
-
+HUNDUR Í BANDI!
 int main()
 {
     snilli();
