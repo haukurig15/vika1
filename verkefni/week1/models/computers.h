@@ -5,7 +5,11 @@
 
 using namespace std;
 
-
+enum comTyp{
+    mecanic,
+    electronic,
+    lectric
+};
 
 
 class Computers
@@ -15,7 +19,7 @@ public:
     Computers(string name, string type, int yearBuild, bool built);
 
     string getName() const;
-    string getType() const;
+    enum comType getType() const;
     int getYearBuild() const;
     bool didItGetBuilt() const;
 
@@ -23,7 +27,7 @@ public:
 
 private:
     string name;
-    string type;
+    enum comType type;
     int yearBuild;
     bool built;
 };

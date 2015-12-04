@@ -26,7 +26,7 @@ string Computers::getName() const
     return name;
 }
 
-string Computers::getType() const
+enum comType Computers::getType() const
 {
     return type;
 }
