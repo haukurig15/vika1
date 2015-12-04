@@ -34,7 +34,7 @@ public:
      */
     bool addComputers(Computers computers);
 private:
-    ComutersRepository computersRepo;
+    ComputersRepository computersRepo;
 };
 
-#endif // COMPUTERSERVICE_H
+#endif // COMPUTERSSERVICE_H

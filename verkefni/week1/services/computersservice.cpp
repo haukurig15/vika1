@@ -1,5 +1,5 @@
-#include "services/computerservice.h"
-#include "utilities/scientistcomparator.h"
+#include "services/computersservice.h"
+#include "utilities/computerscomparator.h"
 
 #include <algorithm>
 
@@ -10,16 +10,16 @@ ComputersService::ComputersService()
 
 }
 
-vector<Computers> ComputersService::getAllComputers(std::string orderBy, bool orderAscending)
+vector<Computers> ComputersService::getAllComputers(string orderBy, bool orderAscending)
 {
     vector<Computers> computers = computersRepo.getAllComputers();
 
-    std::sort(computers.begin(), computers.end(), ComputersComparator(orderBy, orderAscending));
+    sort(computers.begin(), computers.end(), ComputersComparator(orderBy, orderAscending));
 
     return computers;
 }
 
-std::vector<Computers> ComputersService::searchForComputers(std::string searchTerm)
+vector<Computers> ComputersService::searchForComputers(string searchTerm)
 {
     return computersRepo.searchForComputers(searchTerm);
 }
