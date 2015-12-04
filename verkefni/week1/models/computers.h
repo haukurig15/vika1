@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-class computers
+class Computers
 {
 public:
     Computers(string name, string type, int yearBuild);
@@ -16,7 +16,7 @@ public:
 
     string getName() const;
     string getType() const;
-    int getYearBorn() const;
+    int getYearBuild() const;
     bool didItGetBuilt() const;
 
     bool contains(string searchTerm);
