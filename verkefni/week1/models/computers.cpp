@@ -41,7 +41,7 @@ bool Computers::didItGetBuilt() const
     return built;
 }
 /*
-bool Scientist::contains(string searchTerm)
+bool Computers::contains(string searchTerm)
 {
     string searchTermLower = utils::stringToLower(searchTerm);
 
@@ -51,19 +51,19 @@ bool Scientist::contains(string searchTerm)
         return true;
     }
 
-    if (searchTermLower == "male" && sex == sexType::male)
+    if (searchTermLower == "electronic" && type == string::electronic)
     {
         return true;
     }
 
-    if (searchTermLower == "female" && sex == sexType::female)
+    if (searchTermLower == "mecanic" && type == string::mecanic)
     {
         return true;
     }
 
-    string yearBornString = utils::intToString(yearBorn);
+    string yearBuildString = utils::intToString(yearBuild);
 
-    if (yearBornString.find(searchTerm) != string::npos)
+    if (yearBuildString.find(searchTerm) != string::npos)
     {
         return true;
     }
