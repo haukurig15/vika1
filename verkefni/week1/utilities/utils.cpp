@@ -81,7 +81,4 @@ namespace utils {
     {
         return intToSex(stringToInt(str));
     }
-    std::string stringToType(string str){
-        return str;
-    }
 }

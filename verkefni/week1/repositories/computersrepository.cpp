@@ -30,7 +30,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
             if (fields.size() >= 3)
             {
                 string name = fields.at(0);
-                string type = utils::stringToType(fields.at(1));
+                string type = (fields.at(1));
                 int yearBuild = utils::stringToInt(fields.at(2));
 
                 if (fields.size() == 3)

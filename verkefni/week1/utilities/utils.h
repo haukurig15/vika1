@@ -21,11 +21,13 @@ namespace utils {
 
     string intToString(int number);
 
+   // string stringToType(string str);
+
     enum sexType intToSex(int number);
 
     enum sexType stringToSex(string str);
 
-    string stringToType(string str);
+
 
 }
 
