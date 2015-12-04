@@ -18,7 +18,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
 
     file.open(fileName.c_str());
 
-    vector<Scientist> scientists;
+    vector<Computers> computers;
 
     if (file.is_open())
     {
@@ -30,18 +30,18 @@ std::vector<Computers> ComputersRepository::getAllComputers()
             if (fields.size() >= 3)
             {
                 string name = fields.at(0);
-                enum sexType sex = utils::stringToSex(fields.at(1));
-                int yearBorn = utils::stringToInt(fields.at(2));
+                string type = utils::stringToType(fields.at(1));
+                int yearBuild = utils::stringToInt(fields.at(2));
 
                 if (fields.size() == 3)
                 {
-                    scientists.push_back(Scientist(name, sex, yearBorn));
+                    computers.push_back(Computers(name, type, yearBuild));
                 }
                 else
                 {
-                    int yearDied = utils::stringToInt(fields.at(3));
+                    bool getBuilt = utils::stringToInt(fields.at(3));
 
-                    scientists.push_back(Scientist(name, sex, yearBorn, yearDied));
+                    computers.push_back(Computers(name, type, yearBuild, getBuilt));
                 }
             }
         }
@@ -49,26 +49,26 @@ std::vector<Computers> ComputersRepository::getAllComputers()
 
     file.close();
 
-    return scientists;
+    return computers;
 }
 
-vector<Scientist> ScientistRepository::searchForScientists(string searchTerm)
+vector<Computers> ComputersRepository::searchForComputers(string searchTerm)
 {
-    vector<Scientist> allScientists = getAllScientists();
-    vector<Scientist> filteredScientists;
+    vector<Computers> allComputers = getAllComputers();
+    vector<Computers> filteredComputers;
 
-    for (unsigned int i = 0; i < allScientists.size(); i++)
+    for (unsigned int i = 0; i < allComputers.size(); i++)
     {
-        if (allScientists.at(i).contains(searchTerm))
+        if (allComputers.at(i).contains(searchTerm))
         {
-            filteredScientists.push_back(allScientists.at(i));
+            filteredComputers.push_back(allComputers.at(i));
         }
     }
 
-    return filteredScientists;
+    return filteredComputers;
 }
 
-bool ScientistRepository::addScientist(Scientist scientist)
+bool ComputersRepository::addComputers(Computers computers)
 {
     ofstream file;
 
@@ -76,18 +76,18 @@ bool ScientistRepository::addScientist(Scientist scientist)
 
     if (file.is_open())
     {
-        string name = scientist.getName();
-        enum sexType sex = scientist.getSex();
-        int yearBorn = scientist.getYearBorn();
-        int yearDied = scientist.getYearDied();
+        string name = computers.getName();
+        string type = computers.getType();
+        int yearBuild = computers.getYearBuild();
+        int didItGetBuilt = computers.didItGetBuilt();
 
         file << name << constants::FILE_DELIMETER
-             << sex << constants::FILE_DELIMETER
-             << yearBorn << constants::FILE_DELIMETER;
+             << type << constants::FILE_DELIMETER
+             << yearBuild << constants::FILE_DELIMETER;
 
-        if (yearDied != constants::YEAR_DIED_DEFAULT_VALUE)
+        if (didItGetBuilt != constants::YEAR_DIED_DEFAULT_VALUE)
         {
-            file << yearDied;
+            file << didItGetBuilt;
         }
 
         file << '\n';

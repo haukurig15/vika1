@@ -72,13 +72,16 @@ namespace utils {
         return stream.str();
     }
 
-    enum sexType intToSex(int number) 
+    enum sexType intToSex(int number)
     {
         return static_cast<enum sexType>(number);
     }
 
-    enum sexType stringToSex(std::string str) 
+    enum sexType stringToSex(std::string str)
     {
         return intToSex(stringToInt(str));
+    }
+    std::string stringToType(string str){
+        return str;
     }
 }
