@@ -77,13 +77,13 @@ namespace utils {
         return static_cast<enum sexType>(number);
     }
 
-    enum sexType stringToSex(std::string str)
+    enum sexType stringToSex(string str)
     {
         return intToSex(stringToInt(str));
     }
 
     enum comType stringToType(string str){ //bætti þessu við
-        return intToType(stringToInt(str));//bætti þessu við
+    return intToType(stringToInt(str));//bætti þessu við
     }
 
     enum comType intToType(int number){ //bætti þessu við

@@ -1,6 +1,6 @@
 #ifndef COMPUTERS_H
 #define COMPUTERS_H
-#include <QtSql>
+
 #include <string>
 
 using namespace std;

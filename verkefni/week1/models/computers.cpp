@@ -1,7 +1,7 @@
 #include "models/computers.h"
 #include "utilities/utils.h"
 #include "utilities/constants.h"
-#include <QtSql>
+
 #include <string>
 
 using namespace std;

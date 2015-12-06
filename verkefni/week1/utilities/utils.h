@@ -22,7 +22,9 @@ namespace utils {
 
     string intToString(int number);
 
-    string stringToType(string str); //bætti þessu við
+   // string stringToType(string str); //bætti þessu við
+
+    enum comType stringToType(string str);
 
     enum comType intToType(int number); //bætti þessu við
 
