@@ -40,8 +40,8 @@ bool Computers::didItGetBuilt() const
 {
     return built;
 }
-/*
-bool Computers::contains(string searchTerm)
+
+/*bool Computers::contains(string searchTerm)
 {
     string searchTermLower = utils::stringToLower(searchTerm);
 

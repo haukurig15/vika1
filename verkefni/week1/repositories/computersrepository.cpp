@@ -7,6 +7,9 @@
 
 using namespace std;
 
+
+
+
 ComputersRepository::ComputersRepository()
 {
     fileName = constants::DATA_FILE_NAME;
@@ -52,7 +55,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
     return computers;
 }
 
-vector<Computers> ComputersRepository::searchForComputers(string searchTerm)
+/*vector<Computers> ComputersRepository::searchForComputers(string searchTerm)
 {
     vector<Computers> allComputers = getAllComputers();
     vector<Computers> filteredComputers;
@@ -67,7 +70,7 @@ vector<Computers> ComputersRepository::searchForComputers(string searchTerm)
 
     return filteredComputers;
 }
-
+*/
 bool ComputersRepository::addComputers(Computers computers)
 {
     ofstream file;
@@ -100,3 +103,4 @@ bool ComputersRepository::addComputers(Computers computers)
     file.close();
     return true;
 }
+

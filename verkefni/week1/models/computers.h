@@ -22,7 +22,7 @@ public:
     int getYearBuild() const;
     bool didItGetBuilt() const;
 
-    bool contains(string searchTerm);
+   // bool contains(string searchTerm);
 
 private:
     string name;

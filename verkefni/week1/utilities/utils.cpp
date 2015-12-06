@@ -82,7 +82,7 @@ namespace utils {
         return intToSex(stringToInt(str));
     }
 
-    enum comType stringToType(string str){ //bætti þessu við
+   enum comType stringToType(string str){ //bætti þessu við
     return intToType(stringToInt(str));//bætti þessu við
     }
 
