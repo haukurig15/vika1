@@ -5,18 +5,17 @@
 
 using namespace std;
 
-enum comTyp{
+enum comType{ //lagaði þetta
     mecanic,
-    electronic,
-    lectric
+    electronic
 };
 
 
 class Computers
 {
 public:
-    Computers(string name, string type, int yearBuild);
-    Computers(string name, string type, int yearBuild, bool built);
+    Computers(string name, enum comType type, int yearBuild); //(breyttir úr string type í enum comType type)
+    Computers(string name, enum comType type, int yearBuild, bool built); //(breyttir úr string type í enum comType type)
 
     string getName() const;
     enum comType getType() const;

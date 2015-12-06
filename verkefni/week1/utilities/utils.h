@@ -7,6 +7,7 @@
 #include <string>
 
 #include "models/scientist.h"
+#include "models/computers.h" //til þess að geta unnið með computers skjölunum
 using namespace std;
 /**
  * This file contains reusable utility functions used throughout the application
@@ -21,7 +22,9 @@ namespace utils {
 
     string intToString(int number);
 
-   //string stringToType(string str);
+    string stringToType(string str); //bætti þessu við
+
+    enum comType intToType(int number); //bætti þessu við
 
     enum sexType intToSex(int number);
 

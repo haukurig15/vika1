@@ -30,7 +30,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
             if (fields.size() >= 3)
             {
                 string name = fields.at(0);
-                string type = (fields.at(1));
+                enum comType type = utils::stringToType(fields.at(1));
                 int yearBuild = utils::stringToInt(fields.at(2));
 
                 if (fields.size() == 3)
@@ -77,7 +77,7 @@ bool ComputersRepository::addComputers(Computers computers)
     if (file.is_open())
     {
         string name = computers.getName();
-        string type = computers.getType();
+        enum comType type = computers.getType();
         int yearBuild = computers.getYearBuild();
         int didItGetBuilt = computers.didItGetBuilt();
 

@@ -6,14 +6,14 @@
 
 using namespace std;
 
-Computers::Computers(string name, string type, int yearBuild)
+Computers::Computers(string name, enum comType type, int yearBuild) //lagaði þetta (var string type)
 {
     this->name = name;
     this->type = type;
     this->yearBuild = yearBuild;
 }
 
-Computers::Computers(string name, string type, int yearBuild, bool built)
+Computers::Computers(string name, enum comType type, int yearBuild, bool built) //lagaði þetta(var string type)
 {
     this->name = name;
     this->type = type;

@@ -5,7 +5,7 @@
 #include <string>
 
 #include "models/computers.h"
-
+using namespace std;
 
 /**
  * @brief The ScientistRepository class handles reading and writing scientists to and from a file
@@ -19,14 +19,14 @@ public:
      * @brief getAllComputers fetches all scientists from the data file
      * @return a vector containing all scientists in the data file
      */
-    std::vector<Computers> getAllComputers();
+    vector<Computers> getAllComputers();
 
     /**
      * @brief searchForComputers fetches all scientists from file and filters them on searchTerm
      * @param searchTerm Contains the input that the user wishes to filter on
      * @return a vector of scientists filtered by searchTerm
      */
-    std::vector<Computers> searchForComputers(std::string searchTerm);
+    vector<Computers> searchForComputers(string searchTerm);
 
     /**
      * @brief addComputers saves a scientist model to a file
@@ -36,7 +36,7 @@ public:
     bool addComputers(Computers computers);
 
 private:
-    std::string fileName;
+    string fileName;
 };
 
 #endif // COMPUTERSREPOSITORY_H
