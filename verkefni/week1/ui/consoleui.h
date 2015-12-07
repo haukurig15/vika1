@@ -59,6 +59,7 @@ private:
      * @param userInput the input the user is trying to create a scientist from
      */
     void addCommandHandler(std::string userInput);
+    void add2CommandHandler(std::string userInput);
 
     /**
      * @brief sortCommandHandler calls the setSort function and notifies the user how it went
@@ -78,7 +79,7 @@ private:
      * @return true if it was a success, false if it was a failure
      */
     bool addScientist(std::string data);
-    bool addComputer(std::string data);
+    bool addComputers(std::string data);
 
     /**
      * @brief setSort attempts to change how scientists will be sorted based on userinput

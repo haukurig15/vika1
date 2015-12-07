@@ -100,7 +100,7 @@ void ConsoleUI::readInput()
         }
         else if (lastCommand == command::add2)
         {
-            sortCommandHandler(userInput);
+            add2CommandHandler(userInput);
         }
         else if (lastCommand == command::sort)
         {
@@ -121,6 +121,18 @@ void ConsoleUI::addCommandHandler(string userInput)
 {
     if (addScientist(userInput)) {
         cout << "Successfully added a scientist\n\n";
+        lastCommand = command::menu;
+    }
+    else
+    {
+        displayError("There was an error in your input.");
+    }
+}
+
+void ConsoleUI::add2CommandHandler(string userInput)
+{
+    if (addComputers(userInput)) {
+        cout << "Successfully added a computer\n\n";
         lastCommand = command::menu;
     }
     else
@@ -331,7 +343,7 @@ bool ConsoleUI::addScientist(string data)
     return false;
 }
 
-bool ConsoleUI::addComputer(string data)
+bool ConsoleUI::addComputers(string data)
 {
     vector<string> fields = utils::splitString(data, ',');
 
