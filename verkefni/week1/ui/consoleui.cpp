@@ -162,7 +162,7 @@ void ConsoleUI::displayMenu()
          << "quit:" << "Quits the program\n\n";
 
     cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
-         << "add2:" << "Adds a computer\n";
+         << "add2:" << "Adds a computer\n\n";
 
     cout << "Command: ";
 }
@@ -194,13 +194,13 @@ void ConsoleUI::displayAllScientists()
 
     lastCommand = command::display;
 }
-/*
-void ConsoleUI::displayAllComputers(){
+
+/*void ConsoleUI::displayAllComputers(){
     vector<Computers> computers = computersService.getAllComputers(sortBy, sortAscending);
 
-    display
-}
-*/
+    display;
+}*/
+
 void ConsoleUI::displayScientistSearchMenu()
 {
     cout << "Search for a scientist.\n\n";
