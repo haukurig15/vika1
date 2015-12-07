@@ -164,7 +164,15 @@ void ConsoleUI::displayAddScientistMenu()
     cout << "If you would like to go back to the main menu, please type: back\n";
     cout << "Input: ";
 }
-
+/*
+void ConsoleUI::displayAddComputerMenu(){
+    cout << "To add a computer, type in:\n";
+    cout << "Name, type, year built\n"; //DidItGetBuilt þarf að bæta við
+    cout << "Comma seperated like in example above.–\n\n";
+    cout << "If you would like to go back to the main menu, please type: back\n";
+    cout << "Input: ";
+}
+*/
 void ConsoleUI::displayAllScientists()
 {
     vector<Scientist> scientists = scientistService.getAllScientists(sortBy, sortAscending);
@@ -175,7 +183,13 @@ void ConsoleUI::displayAllScientists()
 
     lastCommand = command::display;
 }
+/*
+void ConsoleUI::displayAllComputers(){
+    vector<Computers> computers = computersService.getAllComputers(sortBy, sortAscending);
 
+    display
+}
+*/
 void ConsoleUI::displayScientistSearchMenu()
 {
     cout << "Search for a scientist.\n\n";
@@ -243,8 +257,35 @@ void ConsoleUI::displayScientists(std::vector<Scientist> scientists)
              << setw(12) << std::left << scientists.at(i).getYearBorn()
              << setw(12) << std::left << died << endl;
     }
-}
+}/*
+void displayComputers(std::vector<Computers> computers){
+    if (computers.size() == 0)
+    {
+        cout << "No computers found.\n";
+        return;
+    }
 
+    cout << "Printing all computers:\n";
+
+    cout << setw(20) << std::left << "Name:"
+         << setw(8) << std::left << "Type:"
+         << setw(12) << std::left << "Year build:"
+         << setw(12) << std::left << "did it get built?:" << endl;
+
+    for (unsigned int i = 0; i < computers.size(); i++)
+    {
+        string computersType = (computers.at(i).getType() == getType::mecanic) ? "Mecanic" : "Electronic";
+
+        int yearDied = scientists.at(i).getYearDied();
+        string died = (yearDied == constants::YEAR_DIED_DEFAULT_VALUE) ? "Alive" : utils::intToString(yearDied);
+
+        cout << setw(20) << std::left << scientists.at(i).getName()
+             << setw(8) << std::left << scientistSex
+             << setw(12) << std::left << scientists.at(i).getYearBorn()
+             << setw(12) << std::left << died << endl;
+    }
+}
+*/
 bool ConsoleUI::addScientist(string data)
 {
     vector<string> fields = utils::splitString(data, ',');

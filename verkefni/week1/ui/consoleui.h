@@ -2,6 +2,7 @@
 #define CONSOLEUI_H
 
 #include "services/scientistservice.h"
+#include "services/computersservice.h"
 
 /**
  * @brief Holds commands that are available in the UI
@@ -44,11 +45,14 @@ private:
 
     void displayMenu();
     void displayAddScientistMenu();
+    void displayAddComputerMenu();
     void displayAllScientists();
+    void displayAllComputers();
     void displayScientistSearchMenu();
     void displayScientistSortMenu();
     void displayUnknownCommandMenu();
     void displayScientists(std::vector<Scientist> scientists);
+    void displayComputers(std::vector<Computers> computers);
 
     /**
      * @brief addCommandHandler calls the addScientist function and notifies the user how it went

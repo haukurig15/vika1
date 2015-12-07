@@ -15,12 +15,12 @@ class Computers
 {
 public:
     Computers(string name, enum comType type, int yearBuild); //(breyttir úr string type í enum comType type)
-    Computers(string name, enum comType type, int yearBuild, bool built); //(breyttir úr string type í enum comType type)
+    Computers(string name, enum comType type, int yearBuild, string built); //(breyttir úr string type í enum comType type)
 
     string getName() const;
     enum comType getType() const;
     int getYearBuild() const;
-    bool didItGetBuilt() const;
+    string didItGetBuilt() const;
 
    // bool contains(string searchTerm);
 
@@ -28,7 +28,7 @@ private:
     string name;
     enum comType type;
     int yearBuild;
-    bool built;
+    string built;
 };
 
 #endif // COMPUTERS_H

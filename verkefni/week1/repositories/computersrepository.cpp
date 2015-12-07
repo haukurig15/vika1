@@ -42,7 +42,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
                 }
                 else
                 {
-                    bool getBuilt = utils::stringToInt(fields.at(3));
+                    string getBuilt = utils::stringToInt(fields.at(3));
 
                     computers.push_back(Computers(name, type, yearBuild, getBuilt));
                 }

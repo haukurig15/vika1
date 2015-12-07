@@ -1,7 +1,6 @@
 #include "models/computers.h"
 #include "utilities/utils.h"
 #include "utilities/constants.h"
-
 #include <string>
 
 using namespace std;
@@ -13,7 +12,7 @@ Computers::Computers(string name, enum comType type, int yearBuild) //lagaði þ
     this->yearBuild = yearBuild;
 }
 
-Computers::Computers(string name, enum comType type, int yearBuild, bool built) //lagaði þetta(var string type)
+Computers::Computers(string name, enum comType type, int yearBuild, string built) //lagaði þetta(var string type)
 {
     this->name = name;
     this->type = type;
@@ -36,12 +35,16 @@ int Computers::getYearBuild() const
     return yearBuild;
 }
 
-bool Computers::didItGetBuilt() const
+string Computers::didItGetBuilt() const
 {
     return built;
 }
 
+//<<<<<<< Updated upstream
 /*bool Computers::contains(string searchTerm)
+=======
+bool Computers::contains(string searchTerm)
+>>>>>>> Stashed changes
 {
     string searchTermLower = utils::stringToLower(searchTerm);
 
@@ -87,4 +90,5 @@ bool Computers::didItGetBuilt() const
 
     return false;
 }
+
 */
