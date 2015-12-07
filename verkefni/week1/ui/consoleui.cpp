@@ -35,6 +35,9 @@ void ConsoleUI::display()
         case command::add:
             displayAddScientistMenu();
             break;
+        case command::add2:
+            displayAddComputerMenu();
+            break;
         case command::display:
             displayAllScientists();
             break;
@@ -73,6 +76,10 @@ void ConsoleUI::readInput()
     {
         lastCommand = command::add;
     }
+    else if (userInput == "add2" && shouldTreatInputAsCommand) //bætti þessu við
+    {
+        lastCommand = command::add2;
+    }
     else if (userInput == "search" && shouldTreatInputAsCommand)
     {
         lastCommand = command::search;
@@ -90,6 +97,10 @@ void ConsoleUI::readInput()
         if (lastCommand == command::add)
         {
             addCommandHandler(userInput);
+        }
+        else if (lastCommand == command::add2)
+        {
+            sortCommandHandler(userInput);
         }
         else if (lastCommand == command::sort)
         {
@@ -151,7 +162,7 @@ void ConsoleUI::displayMenu()
          << "quit:" << "Quits the program\n\n";
 
     cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
-         << "add2:" << "Adds a scientist\n";
+         << "add2:" << "Adds a computer\n";
 
     cout << "Command: ";
 }
@@ -164,7 +175,7 @@ void ConsoleUI::displayAddScientistMenu()
     cout << "If you would like to go back to the main menu, please type: back\n";
     cout << "Input: ";
 }
-/*
+
 void ConsoleUI::displayAddComputerMenu(){
     cout << "To add a computer, type in:\n";
     cout << "Name, type, year built\n"; //DidItGetBuilt þarf að bæta við
@@ -172,7 +183,7 @@ void ConsoleUI::displayAddComputerMenu(){
     cout << "If you would like to go back to the main menu, please type: back\n";
     cout << "Input: ";
 }
-*/
+
 void ConsoleUI::displayAllScientists()
 {
     vector<Scientist> scientists = scientistService.getAllScientists(sortBy, sortAscending);

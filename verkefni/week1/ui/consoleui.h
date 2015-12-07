@@ -10,13 +10,13 @@
 enum command {
     menu,
     add,
+    add2,
     display,
     search,
     sort,
     back,
     quit,
     unknown,
-    add2,
     display2
 
 };

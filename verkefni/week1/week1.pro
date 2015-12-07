@@ -1,5 +1,7 @@
-QT += core sql
+QT += core
+QT += sql
 QT -= gui
+QT += core sql
 
 TARGET = week1
 CONFIG += console

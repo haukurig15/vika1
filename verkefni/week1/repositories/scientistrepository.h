@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <QtSql>
 
 #include "models/scientist.h"
 using namespace std;
