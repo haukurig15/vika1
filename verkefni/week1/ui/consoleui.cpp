@@ -35,6 +35,9 @@ void ConsoleUI::display()
         case command::add:
             displayAddScientistMenu();
             break;
+        case command::add2:
+            displayAddComputerMenu();
+            break;
         case command::display:
             displayAllScientists();
             break;
@@ -73,6 +76,10 @@ void ConsoleUI::readInput()
     {
         lastCommand = command::add;
     }
+    else if (userInput == "add2" && shouldTreatInputAsCommand) //bætti þessu við
+    {
+        lastCommand = command::add2;
+    }
     else if (userInput == "search" && shouldTreatInputAsCommand)
     {
         lastCommand = command::search;
@@ -90,6 +97,10 @@ void ConsoleUI::readInput()
         if (lastCommand == command::add)
         {
             addCommandHandler(userInput);
+        }
+        else if (lastCommand == command::add2)
+        {
+            add2CommandHandler(userInput);
         }
         else if (lastCommand == command::sort)
         {
@@ -110,6 +121,18 @@ void ConsoleUI::addCommandHandler(string userInput)
 {
     if (addScientist(userInput)) {
         cout << "Successfully added a scientist\n\n";
+        lastCommand = command::menu;
+    }
+    else
+    {
+        displayError("There was an error in your input.");
+    }
+}
+
+void ConsoleUI::add2CommandHandler(string userInput)
+{
+    if (addComputers(userInput)) {
+        cout << "Successfully added a computer\n\n";
         lastCommand = command::menu;
     }
     else
@@ -150,6 +173,9 @@ void ConsoleUI::displayMenu()
     cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
          << "quit:" << "Quits the program\n\n";
 
+    cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
+         << "add2:" << "Adds a computer\n\n";
+
     cout << "Command: ";
 }
 
@@ -158,6 +184,14 @@ void ConsoleUI::displayAddScientistMenu()
     cout << "To add a scientist, type in:\n";
     cout << "Name,sex,yearBorn,yearDied (optional)\n";
     cout << "Comma separated like in the example above.\n\n";
+    cout << "If you would like to go back to the main menu, please type: back\n";
+    cout << "Input: ";
+}
+
+void ConsoleUI::displayAddComputerMenu(){
+    cout << "To add a computer, type in:\n";
+    cout << "Name, type, year built\n"; //DidItGetBuilt þarf að bæta við
+    cout << "Comma seperated like in example above.–\n\n";
     cout << "If you would like to go back to the main menu, please type: back\n";
     cout << "Input: ";
 }
@@ -172,6 +206,12 @@ void ConsoleUI::displayAllScientists()
 
     lastCommand = command::display;
 }
+
+/*void ConsoleUI::displayAllComputers(){
+    vector<Computers> computers = computersService.getAllComputers(sortBy, sortAscending);
+
+    display;
+}*/
 
 void ConsoleUI::displayScientistSearchMenu()
 {
@@ -240,8 +280,35 @@ void ConsoleUI::displayScientists(std::vector<Scientist> scientists)
              << setw(12) << std::left << scientists.at(i).getYearBorn()
              << setw(12) << std::left << died << endl;
     }
-}
+}/*
+void displayComputers(std::vector<Computers> computers){
+    if (computers.size() == 0)
+    {
+        cout << "No computers found.\n";
+        return;
+    }
 
+    cout << "Printing all computers:\n";
+
+    cout << setw(20) << std::left << "Name:"
+         << setw(8) << std::left << "Type:"
+         << setw(12) << std::left << "Year build:"
+         << setw(12) << std::left << "did it get built?:" << endl;
+
+    for (unsigned int i = 0; i < computers.size(); i++)
+    {
+        string computersType = (computers.at(i).getType() == getType::mecanic) ? "Mecanic" : "Electronic";
+
+        int yearDied = scientists.at(i).getYearDied();
+        string died = (yearDied == constants::YEAR_DIED_DEFAULT_VALUE) ? "Alive" : utils::intToString(yearDied);
+
+        cout << setw(20) << std::left << scientists.at(i).getName()
+             << setw(8) << std::left << scientistSex
+             << setw(12) << std::left << scientists.at(i).getYearBorn()
+             << setw(12) << std::left << died << endl;
+    }
+}
+*/
 bool ConsoleUI::addScientist(string data)
 {
     vector<string> fields = utils::splitString(data, ',');
@@ -275,6 +342,41 @@ bool ConsoleUI::addScientist(string data)
 
     return false;
 }
+
+bool ConsoleUI::addComputers(string data)
+{
+    vector<string> fields = utils::splitString(data, ',');
+
+    if (fields.size() > 2 && fields.size() < 5)
+    {
+        string name = fields.at(0);
+
+        enum comType type;
+        if (fields.at(1) == "mecanic")
+        {
+            type = comType::mecanic;
+        }
+        else
+        {
+            type = comType::electronic;
+        }
+        int yearBuild = utils::stringToInt(fields.at(2));
+
+        if (fields.size() == 3)
+        {
+            return computersService.addComputers(Computers(name, type, yearBuild));
+        }
+        else
+        {
+            string DidItGetBuilt = (fields.at(3));
+
+            return computersService.addComputers(Computers(name, type, yearBuild, DidItGetBuilt));
+        }
+    }
+
+    return false;
+}
+
 
 bool ConsoleUI::setSort(string sortCommand)
 {

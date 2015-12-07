@@ -2,6 +2,7 @@
 #define CONSOLEUI_H
 
 #include "services/scientistservice.h"
+#include "services/computersservice.h"
 
 /**
  * @brief Holds commands that are available in the UI
@@ -9,12 +10,15 @@
 enum command {
     menu,
     add,
+    add2,
     display,
     search,
     sort,
     back,
     quit,
-    unknown
+    unknown,
+    display2
+
 };
 
 class ConsoleUI
@@ -41,17 +45,21 @@ private:
 
     void displayMenu();
     void displayAddScientistMenu();
+    void displayAddComputerMenu();
     void displayAllScientists();
+    void displayAllComputers();
     void displayScientistSearchMenu();
     void displayScientistSortMenu();
     void displayUnknownCommandMenu();
     void displayScientists(std::vector<Scientist> scientists);
+    void displayComputers(std::vector<Computers> computers);
 
     /**
      * @brief addCommandHandler calls the addScientist function and notifies the user how it went
      * @param userInput the input the user is trying to create a scientist from
      */
     void addCommandHandler(std::string userInput);
+    void add2CommandHandler(std::string userInput);
 
     /**
      * @brief sortCommandHandler calls the setSort function and notifies the user how it went
@@ -71,6 +79,7 @@ private:
      * @return true if it was a success, false if it was a failure
      */
     bool addScientist(std::string data);
+    bool addComputers(std::string data);
 
     /**
      * @brief setSort attempts to change how scientists will be sorted based on userinput
@@ -82,6 +91,7 @@ private:
     void displayError(std::string error);
 
     ScientistService scientistService;
+    ComputersService computersService;
     enum command lastCommand;
 
     std::string sortBy;

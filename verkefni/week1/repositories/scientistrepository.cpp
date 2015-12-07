@@ -4,8 +4,11 @@
 
 #include <fstream>
 #include <cstdlib>
+#include <QtSql>
 
 using namespace std;
+
+
 
 ScientistRepository::ScientistRepository()
 {
@@ -100,3 +103,6 @@ bool ScientistRepository::addScientist(Scientist scientist)
     file.close();
     return true;
 }
+
+
+
