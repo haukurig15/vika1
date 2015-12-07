@@ -42,7 +42,7 @@ std::vector<Computers> ComputersRepository::getAllComputers()
                 }
                 else
                 {
-                    string getBuilt = utils::stringToInt(fields.at(3));
+                    string getBuilt = (fields.at(3));
 
                     computers.push_back(Computers(name, type, yearBuild, getBuilt));
                 }
@@ -82,13 +82,13 @@ bool ComputersRepository::addComputers(Computers computers)
         string name = computers.getName();
         enum comType type = computers.getType();
         int yearBuild = computers.getYearBuild();
-        int didItGetBuilt = computers.didItGetBuilt();
+        string didItGetBuilt = computers.didItGetBuilt();
 
         file << name << constants::FILE_DELIMETER
              << type << constants::FILE_DELIMETER
              << yearBuild << constants::FILE_DELIMETER;
 
-        if (didItGetBuilt != constants::YEAR_DIED_DEFAULT_VALUE)
+        if (didItGetBuilt != constants::DID_IT_GET_BUILT)
         {
             file << didItGetBuilt;
         }
