@@ -331,6 +331,41 @@ bool ConsoleUI::addScientist(string data)
     return false;
 }
 
+bool ConsoleUI::addComputer(string data)
+{
+    vector<string> fields = utils::splitString(data, ',');
+
+    if (fields.size() > 2 && fields.size() < 5)
+    {
+        string name = fields.at(0);
+
+        enum comType type;
+        if (fields.at(1) == "mecanic")
+        {
+            type = comType::mecanic;
+        }
+        else
+        {
+            type = comType::electronic;
+        }
+        int yearBuild = utils::stringToInt(fields.at(2));
+
+        if (fields.size() == 3)
+        {
+            return computersService.addComputers(Computers(name, type, yearBuild));
+        }
+        else
+        {
+            string DidItGetBuilt = (fields.at(3));
+
+            return computersService.addComputers(Computers(name, type, yearBuild, DidItGetBuilt));
+        }
+    }
+
+    return false;
+}
+
+
 bool ConsoleUI::setSort(string sortCommand)
 {
     if (sortCommand == constants::SORT_SCIENTIST_NAME_ASCENDING)

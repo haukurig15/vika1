@@ -78,6 +78,7 @@ private:
      * @return true if it was a success, false if it was a failure
      */
     bool addScientist(std::string data);
+    bool addComputer(std::string data);
 
     /**
      * @brief setSort attempts to change how scientists will be sorted based on userinput
@@ -89,6 +90,7 @@ private:
     void displayError(std::string error);
 
     ScientistService scientistService;
+    ComputersService computersService;
     enum command lastCommand;
 
     std::string sortBy;
