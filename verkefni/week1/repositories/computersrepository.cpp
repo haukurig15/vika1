@@ -12,7 +12,7 @@ using namespace std;
 
 ComputersRepository::ComputersRepository()
 {
-    fileName = constants::DATA_FILE_NAME;
+    fileName = constants::DATA_FILE_NAME1;
 }
 
 std::vector<Computers> ComputersRepository::getAllComputers()

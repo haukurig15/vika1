@@ -9,6 +9,7 @@
 
 namespace constants {
     const std::string DATA_FILE_NAME = "database.txt";
+    const std::string DATA_FILE_NAME1 = "database1.txt";
     const char FILE_DELIMETER = '\t';
     const int YEAR_DIED_DEFAULT_VALUE = 13337;
 

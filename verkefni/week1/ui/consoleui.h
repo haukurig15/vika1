@@ -14,7 +14,10 @@ enum command {
     sort,
     back,
     quit,
-    unknown
+    unknown,
+    add2,
+    display2
+
 };
 
 class ConsoleUI

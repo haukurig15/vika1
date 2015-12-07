@@ -150,6 +150,9 @@ void ConsoleUI::displayMenu()
     cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
          << "quit:" << "Quits the program\n\n";
 
+    cout << setw(constants::MENU_COMMAND_WIDTH) << std::left
+         << "add2:" << "Adds a scientist\n";
+
     cout << "Command: ";
 }
 
